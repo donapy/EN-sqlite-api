@@ -208,6 +208,17 @@
 			"item": [
 				{
 					"name": "getUsuarios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -263,39 +274,33 @@
 					"name": "newUsuario",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQxMjcxMjUsImV4cCI6MTY2NDE1NTkyNX0.fW_2qmXhk_mVM92-VWlRudgtfCHeDNZtUIikQLu4Qlo",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
 									"key": "ci",
-									"value": "123123",
+									"value": "98",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "password",
+									"value": "pass98",
 									"type": "text"
 								},
 								{
 									"key": "nombre",
-									"value": "usuario55",
+									"value": "usuario98",
 									"type": "text"
 								},
 								{
 									"key": "apellido",
-									"value": "apellido55",
+									"value": "apellido98",
 									"type": "text"
 								},
 								{
 									"key": "telefono",
-									"value": "123123",
+									"value": "123456",
 									"type": "text"
 								}
 							]
