@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "7a0cc0b4-fe46-4688-a8d6-b678d2e7a3fd",
+		"name": "testedge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18387727"
+	},
+	"item": [
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "getPersonas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQxMjcxMjUsImV4cCI6MTY2NDE1NTkyNX0.fW_2qmXhk_mVM92-VWlRudgtfCHeDNZtUIikQLu4Qlo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/personas/getPersonas",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"personas",
+								"getPersonas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPersona",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQwODE4MzIsImV4cCI6MTY2NDExMDYzMn0.UgdBoaYXN7DAMVLpdm-vB0OkZbdxS0C630C3nn1NXiw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/personas/getPersona/123456",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"personas",
+								"getPersona",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newPersona",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQwODE4MzIsImV4cCI6MTY2NDExMDYzMn0.UgdBoaYXN7DAMVLpdm-vB0OkZbdxS0C630C3nn1NXiw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ci",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "testeo1",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "apellido1",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "parapiti 123",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "994123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/personas/newPersona",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"personas",
+								"newPersona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePersona",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQwODE4MzIsImV4cCI6MTY2NDExMDYzMn0.UgdBoaYXN7DAMVLpdm-vB0OkZbdxS0C630C3nn1NXiw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "persona12",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "apellido13",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "parapiti 1234",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "994123555",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/personas/updatePersona/123456",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"personas",
+								"updatePersona",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePersona",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQwODE4MzIsImV4cCI6MTY2NDExMDYzMn0.UgdBoaYXN7DAMVLpdm-vB0OkZbdxS0C630C3nn1NXiw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5000/api/personas/deletePersona/12345",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"personas",
+								"deletePersona",
+								"12345"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "getUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQxMjcxMjUsImV4cCI6MTY2NDE1NTkyNX0.fW_2qmXhk_mVM92-VWlRudgtfCHeDNZtUIikQLu4Qlo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/usuarios/getUsuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"getUsuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQwODE4MzIsImV4cCI6MTY2NDExMDYzMn0.UgdBoaYXN7DAMVLpdm-vB0OkZbdxS0C630C3nn1NXiw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/usuarios/getUsuario/123456",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"getUsuario",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newUsuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQxMjcxMjUsImV4cCI6MTY2NDE1NTkyNX0.fW_2qmXhk_mVM92-VWlRudgtfCHeDNZtUIikQLu4Qlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ci",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "usuario55",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "apellido55",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/usuarios/newUsuario",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"newUsuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQxMjcxMjUsImV4cCI6MTY2NDE1NTkyNX0.fW_2qmXhk_mVM92-VWlRudgtfCHeDNZtUIikQLu4Qlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "usuario15",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "apellido",
+									"value": "apellido15",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "telefono",
+									"value": "111333",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/usuarios/updateUsuario/654321",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"updateUsuario",
+								"654321"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MTIzNDU2LCJpYXQiOjE2NjQwODE4MzIsImV4cCI6MTY2NDExMDYzMn0.UgdBoaYXN7DAMVLpdm-vB0OkZbdxS0C630C3nn1NXiw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5000/api/usuarios/deleteUsuario/654321",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"deleteUsuario",
+								"654321"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ci",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pass123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/usuarios/loginUsuario",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"loginUsuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

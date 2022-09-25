@@ -1,0 +1,441 @@
+openapi: 3.0.1
+info:
+  title: API testedge
+  description: API realizada con NodeJS, Express y SQLite
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api/
+tags:
+  - name: usuarios
+    description: CRUD de la tabla usuarios de la base de datos
+  - name: personas
+    description: CRUD de la tabla personas de la base de datos
+paths:
+  /usuarios/getUsuarios:
+    get:
+      tags:
+        - usuarios
+      summary: Obtiene los datos de todos los usuarios
+      parameters:
+        - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: (OK) Consulta realizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkGetUsuarios'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /usuarios/getUsuario/{ci}:
+    get:
+      tags:
+        - usuarios
+      summary: Obtiene los datos de un usuario especifico mediante el ci
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/ci'
+      responses:
+        '200':
+          description: (OK) Consulta realizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkGetUsuarios'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /usuarios/newUsuario:
+    post:
+      tags:
+        - usuarios
+      summary: Crea un nuevo usuario en la bd
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BodyNewUsuario'
+        required: true
+      responses:
+        '200':
+          description: (OK) El usuario fue registrado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkNewUsuario'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /usuarios/updateUsuario/{ci}:
+    put:
+      tags:
+        - usuarios
+      summary: Actualiza los datos de un usuario
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/ci'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BodyUpdateUsuario'
+        required: true
+      responses:
+        '200':
+          description: (OK) El usuario fue actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkUpdateUsuario'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /usuarios/deleteUsuario/{ci}:
+    delete:
+      tags:
+        - usuarios
+      summary: Elimina un usuario de la bd
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/ci'
+      responses:
+        '200':
+          description: (OK) El usuario fue eliminado de la bd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkDeleteUsuario'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /personas/getPersonas:
+    get:
+      tags:
+        - personas
+      summary: Obtiene los datos de todas las personas
+      parameters:
+        - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: (OK) Consulta realizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkGetPersonas'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /personas/getPersona/{ci}:
+    get:
+      tags:
+        - personas
+      summary: Obtiene los datos de una persona especifica mediante el ci
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/ci'
+      responses:
+        '200':
+          description: (OK) Consulta realizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkGetPersonas'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /personas/newPersona:
+    post:
+      tags:
+        - personas
+      summary: Crea una nueva persona en la bd
+      parameters:
+        - $ref: '#/components/parameters/token'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BodyNewPersona'
+        required: true
+      responses:
+        '200':
+          description: (OK) La persona fue registrada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkNewPersona'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /personas/updatePersona/{ci}:
+    put:
+      tags:
+        - personas
+      summary: Actualiza los datos de una persona
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/ci'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BodyUpdatePersona'
+        required: true
+      responses:
+        '200':
+          description: (OK) La persona fue actualizada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkUpdatePersona'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /personas/deletePersona/{ci}:
+    delete:
+      tags:
+        - personas
+      summary: Elimina una persona de la bd
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/ci'
+      responses:
+        '200':
+          description: (OK) La persona fue eliminada de la bd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkDeletePersona'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: (Unauthorized) No autorizado
+    NotFound:
+      description: (NotFound) No se encontro la informacion solicitada
+    BadRequest:
+      description: >-
+        (BadRequest) Error al realizar la consulta o faltan datos, intente
+        nuevamente
+  parameters:
+    token:
+      name: token
+      in: header
+      description: Token de autenticacion
+      example: Bearer token
+      required: true
+      schema:
+        type: string
+    ci:
+      name: ci
+      in: path
+      description: ci a buscar
+      required: true
+      schema:
+        type: integer
+  schemas:
+    OkGetUsuarios:
+      type: object
+      properties:
+        ci:
+          type: integer
+          description: Cedula de Identidad del usuario
+        nombre:
+          type: string
+          description: Nombre del usuario
+        apellido:
+          type: string
+          description: Apellido del usuario
+        telefono:
+          type: integer
+          description: Numero de telefono del usuario
+    BodyNewUsuario:
+      type: object
+      required:
+        - ci
+        - password
+        - nombre
+      properties:
+        ci:
+          type: integer
+          description: Cedula de Identidad del usuario
+        password:
+          type: string
+          description: Contrasena del usuario
+        nombre:
+          type: string
+          description: Nombre del usuario
+        apellido:
+          type: string
+          description: Apellido del usuario
+        telefono:
+          type: integer
+          description: Numero de telefono del usuario
+    OkNewUsuario:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: afirma la correcta ejecucion del request
+        msg:
+          type: string
+          description: mensaje que fue registrado correctamente el usuario
+        ci:
+          type: integer
+          description: Cedula de Identidad del usuario
+        password:
+          type: string
+          description: Contrasena del usuario
+        nombre:
+          type: string
+          description: Nombre del usuario
+        apellido:
+          type: string
+          description: Apellido del usuario
+        telefono:
+          type: integer
+          description: Numero de telefono del usuario
+    BodyUpdateUsuario:
+      type: object
+      properties:
+        password:
+          type: string
+          description: Contrasena del usuario
+        nombre:
+          type: string
+          description: Nombre del usuario
+        apellido:
+          type: string
+          description: Apellido del usuario
+        telefono:
+          type: integer
+          description: Numero de telefono del usuario
+    OkUpdateUsuario:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: afirma la correcta ejecucion del request
+        msg:
+          type: string
+          description: mensaje que fue actualizado correctamente el usuario
+    OkDeleteUsuario:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: afirma la correcta ejecucion del request
+        msg:
+          type: string
+          description: mensaje que fue eliminado correctamente el usuario
+    OkGetPersonas:
+      type: object
+      properties:
+        ci:
+          type: integer
+          description: Cedula de Identidad de la persona
+        nombre:
+          type: string
+          description: Nombre de la persona
+        apellido:
+          type: string
+          description: Apellido de la persona
+        telefono:
+          type: integer
+          description: Numero de telefono de la persona
+        direccion:
+          type: string
+          description: Direccion de la persona
+    BodyNewPersona:
+      type: object
+      required:
+        - ci
+      properties:
+        ci:
+          type: integer
+          description: Cedula de Identidad de la persona
+        nombre:
+          type: string
+          description: Nombre de la persona
+        apellido:
+          type: string
+          description: Apellido de la persona
+        telefono:
+          type: integer
+          description: Numero de telefono de la persona
+        direccion:
+          type: string
+          description: Direccion de la persona
+    OkNewPersona:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: afirma la correcta ejecucion del request
+        msg:
+          type: string
+          description: mensaje que fue registrado correctamente la persona
+        ci:
+          type: integer
+          description: Cedula de Identidad de la persona
+        nombre:
+          type: string
+          description: Nombre de la persona
+        apellido:
+          type: string
+          description: Apellido de la persona
+        telefono:
+          type: integer
+          description: Numero de telefono de la persona
+        direccion:
+          type: string
+          description: Direccion de la persona
+    BodyUpdatePersona:
+      type: object
+      properties:
+        nombre:
+          type: string
+          description: Nombre de la persona
+        apellido:
+          type: string
+          description: Apellido de la persona
+        telefono:
+          type: integer
+          description: Numero de telefono de la persona
+        direccion:
+          type: string
+          description: Direccion de la persona
+    OkUpdatePersona:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: afirma la correcta ejecucion del request
+        msg:
+          type: string
+          description: mensaje que fue actualizado correctamente la persona
+    OkDeletePersona:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: afirma la correcta ejecucion del request
+        msg:
+          type: string
+          description: mensaje que fue eliminado correctamente la persona
