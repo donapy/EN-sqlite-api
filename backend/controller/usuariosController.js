@@ -12,14 +12,14 @@ const getUsuario = asyncHandler(async (req, res) => {
   db.get(sql, ci, (err, row) => {
     if (err) {
       res.status(400).json({
-        sucess: false,
+        success: false,
         msg: `Error al realizar la consulta, intente nuevamente`,
       });
       return;
     }
     if (row == undefined) {
       res.status(404).json({
-        sucess: false,
+        success: false,
         msg: `El usuario no existe, intente nuevamente`,
       });
       return;
@@ -36,7 +36,7 @@ const getUsuarios = asyncHandler(async (req, res) => {
   db.all(sql, [], (err, rows) => {
     if (err) {
       res.status(400).json({
-        sucess: false,
+        success: false,
         msg: `Error al realizar la consulta, intente nuevamente`,
       });
       return;
@@ -52,7 +52,7 @@ const newUsuario = asyncHandler(async (req, res) => {
   const { ci, nombre, apellido, password, telefono } = req.body;
   if (!nombre || !ci || !password) {
     res.status(400).json({
-      sucess: false,
+      success: false,
       msg: `Error - Faltan campos para insertar el usuario, intente nuevamente`,
     });
     return;
@@ -70,8 +70,12 @@ const newUsuario = asyncHandler(async (req, res) => {
       return;
     }
     res.status(201).json({
-      sucess: true,
+      success: true,
       msg: `El usuario ${nombre} fue registrado exitosamente`,
+      ci,
+      nombre,
+      apellido,
+      telefono,
     });
   });
 });
@@ -84,8 +88,8 @@ const updateUsuario = asyncHandler(async (req, res) => {
   const { nombre, apellido, password, telefono } = req.body;
   if (!nombre && !apellido && !password && !telefono) {
     res.status(400).json({
-      sucess: false,
-      msg: `No se pudo actualizar los datos del usuario, intente nuevamente`,
+      success: false,
+      msg: `Error al realizar la consulta o faltan datos, intente nuevamente`,
     });
     return;
   }
@@ -117,13 +121,13 @@ const updateUsuario = asyncHandler(async (req, res) => {
   db.run(sql, usuario, (err) => {
     if (err) {
       res.status(400).json({
-        sucess: false,
+        success: false,
         msg: `No se pudo actualizar los datos del usuario, intente nuevamente`,
       });
       return;
     }
     res.status(200).json({
-      sucess: true,
+      success: true,
       msg: `El usuario con ci ${ci} fue actualizado exitosamente`,
     });
   });
@@ -138,14 +142,14 @@ const deleteUsuario = asyncHandler(async (req, res) => {
   db.run(sql, ci, (err) => {
     if (err) {
       res.status(400).json({
-        sucess: false,
+        success: false,
         msg: `No se pudo eliminar al usuario, intente nuevamente`,
       });
       return;
     }
 
     res.status(200).json({
-      sucess: true,
+      success: true,
       msg: `El usuario con ci ${ci} fue eliminado de la base datos`,
     });
   });
@@ -163,7 +167,7 @@ const loginUsuario = asyncHandler(async (req, res) => {
     db.get(sql, (err, row) => {
       if (err) {
         res.status(400).json({
-          sucess: false,
+          success: false,
           msg: `Error al realizar la consulta, intente nuevamente`,
         });
         return;
@@ -175,13 +179,13 @@ const loginUsuario = asyncHandler(async (req, res) => {
   //se chequea los datos y se devuelve los datos de logueo
   if (usuario && password == usuario.password) {
     res.status(200).json({
-      sucess: true,
+      success: true,
       token: generateToken(usuario.ci),
       duracion: process.env.JWT_EXPIRES_IN,
     });
   } else {
     res.status(404).json({
-      sucess: false,
+      success: false,
       msg: `Datos invalidos, intente nuevamente`,
     });
   }

@@ -70,6 +70,11 @@ const newPersona = asyncHandler(async (req, res) => {
     res.status(201).json({
       sucess: true,
       msg: `La persona ${nombre} fue registrada exitosamente`,
+      ci,
+      nombre,
+      apellido,
+      direccion,
+      telefono,
     });
   });
 });
