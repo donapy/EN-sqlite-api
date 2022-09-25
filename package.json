@@ -4,7 +4,8 @@
   "description": "test para edge",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Donato Garcia",
   "license": "ISC",
