@@ -21,6 +21,6 @@ router.put("/updateUsuario/:ci", protect, updateUsuario);
 
 router.delete("/deleteUsuario/:ci", protect, deleteUsuario);
 
-router.post("/loginUsuario", protect, loginUsuario);
+router.post("/loginUsuario", loginUsuario);
 
 module.exports = router;
